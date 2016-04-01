@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#  Source utility functions.
+source "$OPENSHIFT_REPO_DIR/.openshift/lib/utils"
+
+#  Setup path to include the custom Node[.js] version.
+ver=$(get_node_version)
+_echo "  - pre_start_nodejs: Adding Node.js version $ver binaries to path"
+_SHOW_SETUP_PATH_MESSAGES="true" setup_path_for_custom_node_version
+
+source "$OPENSHIFT_REPO_DIR/.openshift/lib/utils"
+_SHOW_SETUP_PATH_MESSAGES="true" setup_path_for_custom_node_version
+
+
+#cd ${OPENSHIFT_REPO_DIR}
+#echo "Initiating MeteorShim"
+#nohup node meteorshim.js &

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#  Source utility functions.
+source "$OPENSHIFT_REPO_DIR/.openshift/lib/utils"
+
+#  Setup path to include the custom Node[.js] version.
+_SHOW_SETUP_PATH_MESSAGES="true" setup_path_for_custom_node_version
+
+
+#  So we we moved the package.json file out of the way in pre_build,
+#  so that the OpenShift git post-receive hook doesn't try and use the
+#  old npm version to install the dependencies. Move it back in.
+tmp_package_json="$(get_node_tmp_dir)/package.json"
+if [ -f "$tmp_package_json" ]; then
+	#  Only overlay it if there is no current package.json file.
+	[ -f "${OPENSHIFT_REPO_DIR}/package.json" ]  ||    \
+		mv "$tmp_package_json" "${OPENSHIFT_REPO_DIR}/package.json"
+fi
+
+# Replacing bcrypt
+_echo "Replacing bcrypt..."
+(cd "${OPENSHIFT_REPO_DIR}/bundle/programs/server/npm/node_modules/meteor/npm-bcrypt/node_modules/"; rm -rf bcrypt)
+(cd "${OPENSHIFT_REPO_DIR}/bundle/programs/server";export TMPDIR="tmp"; npm install bcrypt --cache ${OPENSHIFT_DATA_DIR} --loglevel=error)
+
+_echo "Installs Meteor bundle dependencies..."
+echo
+(cd "${OPENSHIFT_REPO_DIR}/bundle/programs/server";export TMPDIR="tmp"; npm install --cache ${OPENSHIFT_DATA_DIR} --loglevel=error)

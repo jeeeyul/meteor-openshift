@@ -1,0 +1,37 @@
+{
+	"name": "까꿍 고객지원 사이트 미티어 래퍼",
+	"version": "1.0.1",
+	"description": "까꿍 고객지원 사이트 미티어 래퍼",
+	"keywords": [
+		"OpenShift",
+		"Node.js",
+		"application",
+		"openshift"
+	],
+	"author": {
+		"name": "Jeeeyul",
+		"email": "jeeeyul@gmail.com",
+		"url":	"http://jeeeyul.net"
+	},
+	"homepage": "http://support.jeeeyul.net",
+	"repository": {
+		"type": "git",
+		"url": "https://gitub.com/ramr/nodejs-custom-version-openshift"
+	},
+
+	"engines": {
+		"node": ">= 0.6.0",
+		"npm": ">= 1.0.0"
+	},
+
+	"dependencies": {
+	},
+	"devDependencies": {},
+	"bundleDependencies": [],
+
+	"private": true,
+	"main": "meteorshim.js",
+	"scripts": {
+		"start" : "node meteorshim.js"
+	}
+}
