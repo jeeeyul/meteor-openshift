@@ -1,3 +1,5 @@
+## How to use
+
 At first, create a openshift app with nodejs-0.10 and MongoDB 3.x custom cartridge.
 
 `bash
@@ -20,10 +22,19 @@ Now, We have to fetch meteor bundler from this git.
 git remote add meteor-openshift -m master git@github.com:jeeeyul/meteor-openshift.git
 git pull -s recursive -X theirs meteor-openshift master
 `
-Now time to build your meteor app.
+Now, time to build your meteor app.
 
 `bash
 cd path/to/your/meteorapp
 meteor build path/to/your/openshift-appname --directory
 `
 It will generates a `bundle` directory into your openshift app repo.
+
+
+Then, push your repo and see what happens.
+`bash
+cd path/to/your/openshift-appname
+git add --all && git commit -m "First Launch" && git push
+`
+
+That's all.
