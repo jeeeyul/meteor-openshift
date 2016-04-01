@@ -26,7 +26,7 @@ Now, time to build your meteor app.
 
 ```bash
 cd path/to/your/meteorapp
-meteor build path/to/your/openshift-appname --directory
+meteor build path/to/your/openshift-appname --directory --server-only
 ```
 It will generates a `bundle` directory into your openshift app repo.
 
@@ -38,3 +38,19 @@ git add --all && git commit -m "First Launch" && git push
 ```
 
 That's all.
+
+
+## How to update meteor app
+
+Just replace `bundle` directory with new build, then push it.
+
+## Enable hot deploy
+
+If you successfully deploy your app first time, Enabling hot deploy is recommanded.
+
+```bash
+cd path/to/your/openshift-appname
+touch .openshift/markers/hot_deploy
+git add --all && git commit -m "First Launch" && git push
+```
+
