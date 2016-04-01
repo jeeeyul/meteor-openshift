@@ -1,7 +1,7 @@
 {
-	"name": "까꿍 고객지원 사이트 미티어 래퍼",
+	"name": "meteor-openshift",
 	"version": "1.0.1",
-	"description": "까꿍 고객지원 사이트 미티어 래퍼",
+	"description": "Meteor bundler for openshift",
 	"keywords": [
 		"OpenShift",
 		"Node.js",
@@ -10,25 +10,13 @@
 	],
 	"author": {
 		"name": "Jeeeyul",
-		"email": "jeeeyul@gmail.com",
-		"url":	"http://jeeeyul.net"
+		"email": "jeeeyul@gmail.com"
 	},
-	"homepage": "http://support.jeeeyul.net",
+	"homepage": "https://github.com/jeeeyul/meteor-openshift",
 	"repository": {
 		"type": "git",
-		"url": "https://gitub.com/ramr/nodejs-custom-version-openshift"
+		"url": "https://github.com/jeeeyul/meteor-openshift.git"
 	},
-
-	"engines": {
-		"node": ">= 0.6.0",
-		"npm": ">= 1.0.0"
-	},
-
-	"dependencies": {
-	},
-	"devDependencies": {},
-	"bundleDependencies": [],
-
 	"private": true,
 	"main": "meteorshim.js",
 	"scripts": {
